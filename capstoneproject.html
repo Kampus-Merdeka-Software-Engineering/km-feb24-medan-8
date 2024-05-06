@@ -5,58 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="./styles/style_cp.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1 class="title">Bike Sales Dashboard in Europe</h1>
-    </header>
-    <nav>
-        <!-- Placeholder untuk menu navigasi -->
-        <!--<form>
-          <label for="Country">Country:</label>
-          <select id="Country" name="Country">
-            <option value="France">France</option>
-            <option value="Germany">Germany</option>
-            <option value="United Kingdom">United Kingdom</option>
-          </select><br>
+  <header>
+  <div><h1 class="title">Bike Sales Dashboard in Europe From 2011 To 2016 In Q1 And Q2</h1></div>
+  <nav class="navbar">
+    <!-- Isi navbar -->
+</nav>
 
-          <label for="State">State:</label>
-          <input type="State" id="State" name="State"><br>
-      
-          <label for="Sub-Category">Sub-Category:</label>
-          <select id="Sub-Category" name="Sub-Category">
-            <option value="Mountain Bikes">Mountain Bikes</option>
-            <option value="Road Bikes">Road Bikes</option>
-            <option value="Touring Bikes">Touring Bikes</option>
-          </select><br>
-
-          <label for="gender">Gender:</label>
-          <select id="gender" name="gender">
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-          </select><br>
-          
-          <label for="Age Group">Age Group:</label>
-          <select id="Age Group" name="Age Group">
-            <option value="Youth (<25)">Youth (<25)</option>
-            <option value="Young Adults(25-34)">Young Adults(25-34)</option>
-            <option value="Adults (35-64)">Adults (35-64)</option>
-            <option value="Seniors (64+)">Seniors (64+)</option>
-          </select><br>
-
-          <label for="Color Product">Color Product:</label>
-          <select id="Color Product" name="Color Product">
-            <option value="Black">Black (<25)</option>
-            <option value="Blue">Blue</option>
-            <option value="Red">Red</option>
-            <option value="Silver">Silver</option>
-            <option value="Yellow">Yellow</option>
-          </select><br>
-
-          <button type="submit">Submit</button>
-      </form> -->
-    </nav>
+  <nav>
+  <div class="navbar">
+    <div class="dropdown">
+        <button class="dropbtn">country 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="#">Beranda</a>
+            <a href="#">Tentang</a>
+            <a href="#">Layanan</a>
+            <a href="#">Kontak</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">state 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="#">Beranda</a>
+            <a href="#">Tentang</a>
+            <a href="#">Layanan</a>
+            <a href="#">Kontak</a>
+        </div>
+    </div><div class="dropdown">
+        <button class="dropbtn">sub category 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="#">Beranda</a>
+            <a href="#">Tentang</a>
+            <a href="#">Layanan</a>
+            <a href="#">Kontak</a>
+        </div>
+    </div>
+  </div>
+  </nav>
+  </header>
     <main class="grid-container">
         <section class="grid-item">
             <h2 class="section-title">Total Profit by Country</h2>
