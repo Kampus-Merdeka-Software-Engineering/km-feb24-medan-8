@@ -2,6 +2,18 @@
     text-align: center;
     color: #1f6f6f;
   }
+
+  .total {
+    display: grid;
+    grid-template-columns:auto auto;
+    width: 400px; 
+    place-items: center;
+    margin:0 auto;
+    font-size: 30px;
+    color: gray;
+    font-style: impact;
+  }
+  
  *{
   font-family: "Poppins", sans-serif;
  } 
@@ -103,3 +115,4 @@
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
+ 
