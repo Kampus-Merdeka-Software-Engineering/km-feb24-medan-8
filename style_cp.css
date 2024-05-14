@@ -6,12 +6,13 @@
   .total {
     display: grid;
     grid-template-columns:auto auto;
-    width: 400px; 
+    width: 500px; 
     place-items: center;
     margin:0 auto;
     font-size: 30px;
     color: gray;
     font-style: impact;
+    font-style: bold;
   }
   
  *{
