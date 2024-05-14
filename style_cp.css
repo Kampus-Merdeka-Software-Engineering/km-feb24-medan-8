@@ -2,21 +2,34 @@
     text-align: center;
     color: #1f6f6f;
   }
+
+  .total {
+    display: grid;
+    grid-template-columns:auto auto;
+    width: 500px; 
+    place-items: center;
+    margin:0 auto;
+    font-size: 30px;
+    color: gray;
+    font-style: impact;
+    font-style: bold;
+  }
+  
+ *{
+  font-family: "Poppins", sans-serif;
+ } 
   .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 20px;
-    margin-top: 20px;
+     margin-top: 80px; 
     flex-grow: 1;
     
   }
   .grid-item {
     background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid #1f6f6f;
     font-size: 10px;
     text-align: center;
-    padding-bottom: 230px;
-    margin-bottom: 20px;
+    padding-bottom: 300px;
   }
   .section-title {
   
@@ -25,7 +38,7 @@
     display: flex; 
     justify-content: center; 
     align-items: center;
-    height: 50px; 
+    height: 45px; 
   }
   img {
     max-width: 100%;
@@ -117,3 +130,4 @@
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
+ 
