@@ -48,7 +48,6 @@
   /* CSS untuk navbar */
   .navbar {
     overflow: hidden;
-    background-color: #1f6f6f;
     /*justify-content: center;*/
     display: flex; 
     justify-content: center; 
@@ -61,6 +60,7 @@
     /*margin: 0 10px;*/
     box-shadow: inset 3px 0 5px -2px rgba(0, 0, 0, 0.2);
     border-left: 0.5px solid #9f9f9f;
+    background-color: #1f6f6f;
   }
 
   .dropdown:last-child {
