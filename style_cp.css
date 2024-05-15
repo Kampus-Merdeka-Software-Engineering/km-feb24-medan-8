@@ -48,8 +48,6 @@
   /* CSS untuk navbar */
   .navbar {
     overflow: hidden;
-    /*background-color: #1f6f6f;*/
-    /*justify-content: center;*/
     display: flex; 
     justify-content: center; 
     margin-bottom: 9px;
