@@ -6,25 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
     <link rel="stylesheet" href="style_cp.css" />
+    
 
-    <!-- Link untuk button arrow down -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
   </head>
   <body>
     <header>
       <div>
         <h1 class="title">
-          Bike Sales Dashboard in Europe From 2011 To 2016 In Q1 And Q2
-        </h1>
+          BIKE SALES DASHBOARD IN EUROPE FROM 2011 TO 2016 IN Q1 AND Q2
+        </h1> 
       </div>
       <nav class="navbar">
         <!-- Isi navbar -->
@@ -38,16 +37,9 @@
               <i class="fa fa-caret-down arrow-down"></i>
             </button>
             <div class="dropdown-content">
-              <label
-                ><input type="checkbox" name="country" value="" /> German</label
-              >
-              <label
-                ><input type="checkbox" name="country" value="" /> United
-                Kingdom</label
-              >
-              <label
-                ><input type="checkbox" name="country" value="" /> France</label
-              >
+              <label><input type="checkbox" name="country" value=""> German</label>
+              <label><input type="checkbox" name="country" value=""> United Kingdom</label>
+              <label><input type="checkbox" name="country" value=""> France</label>
             </div>
           </div>
           <div class="dropdown">
@@ -56,86 +48,29 @@
               <i class="fa fa-caret-down arrow-down"></i>
             </button>
             <div class="dropdown-content">
-              <label
-                ><input type="checkbox" name="state" value="" /> England</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Saarland</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Hessen</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" />
-                Nordrhein-Westfalen</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Seine
-                (Paris)</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Hamburg</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Bayern</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Nord</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Seine Saint
-                Denia</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Yveline</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Essonne</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Hauts de
-                Seine</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Seine et
-                Marne</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Loiret</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Moselle</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Garonne</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" />
-                Brandenburg</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Val
-                d'Oise</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Val de
-                Marne</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" />
-                Charente-Maritime</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Loir et
-                Cher</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Somme</label
-              >
-              <label
-                ><input type="checkbox" name="state" value="" /> Pas de
-                Calais</label
-              >
+              <label><input type="checkbox" name="state" value=""> England</label>
+              <label><input type="checkbox" name="state" value=""> Saarland</label>
+              <label><input type="checkbox" name="state" value=""> Hessen</label>
+              <label><input type="checkbox" name="state" value=""> Nordrhein-Westfalen</label>
+              <label><input type="checkbox" name="state" value=""> Seine (Paris)</label>
+              <label><input type="checkbox" name="state" value=""> Hamburg</label>
+              <label><input type="checkbox" name="state" value=""> Bayern</label>
+              <label><input type="checkbox" name="state" value=""> Nord</label>
+              <label><input type="checkbox" name="state" value=""> Seine Saint Denia</label>
+              <label><input type="checkbox" name="state" value=""> Yveline</label>
+              <label><input type="checkbox" name="state" value=""> Essonne</label>
+              <label><input type="checkbox" name="state" value=""> Hauts de Seine</label>
+              <label><input type="checkbox" name="state" value=""> Seine et Marne</label>
+              <label><input type="checkbox" name="state" value=""> Loiret</label>
+              <label><input type="checkbox" name="state" value=""> Moselle</label>
+              <label><input type="checkbox" name="state" value=""> Garonne</label>
+              <label><input type="checkbox" name="state" value=""> Brandenburg</label>
+              <label><input type="checkbox" name="state" value=""> Val d'Oise</label>
+              <label><input type="checkbox" name="state" value=""> Val de Marne</label>
+              <label><input type="checkbox" name="state" value=""> Charente-Maritime</label>
+              <label><input type="checkbox" name="state" value=""> Loir et Cher</label>
+              <label><input type="checkbox" name="state" value=""> Somme</label>
+              <label><input type="checkbox" name="state" value=""> Pas de Calais</label>
             </div>
           </div>
           <div class="dropdown">
@@ -144,87 +79,70 @@
               <i class="fa fa-caret-down arrow-down"></i>
             </button>
             <div class="dropdown-content">
-              <label
-                ><input type="checkbox" name="subcategory" value="" /> Mountain
-                Bike</label
-              >
-              <label
-                ><input type="checkbox" name="subcategory" value="" /> Road
-                Bike</label
-              >
-              <label
-                ><input type="checkbox" name="subcategory" value="" /> Touring
-                Bike</label
-              >
+              <label><input type="checkbox" name="subcategory" value=""> Mountain Bike</label>
+              <label><input type="checkbox" name="subcategory" value=""> Road Bike</label>
+              <label><input type="checkbox" name="subcategory" value=""> Touring Bike</label>
             </div>
           </div>
           <div class="navbar-date">
             1 Jan 2011 - 30 Jun 2016
-            <input type="date" clase="date-picker" />
+            <input type="date" class="date-picker">
           </div>
           <div class="dropdown"></div>
-        </div>
+          </div>
       </nav>
     </header>
-
+    
     <div class="total">
       <div>
-        <p>Total Profit</p>
-        <p></p>
+        <p>Total Profit </p> 
       </div>
       <div>
         <p>Total Order (unit)</p>
-        <p></p>
       </div>
     </div>
 
     <main class="grid-container">
       <section class="grid-item">
         <h2 class="section-title">Total Profit by Country</h2>
-        <canvas id="totalprofitbycountry"></canvas>
+        <canvas id="chart0" height="30px" width="30"></canvas>
+        <script src="script0.js"></script>
       </section>
 
       <section class="grid-item">
         <h2 class="section-title">Total Profit by State</h2>
-        <article>
-          <!-- Placeholder untuk konten artikel -->
-        </article>
+        <canvas id="chart1" height="30px" width="30"></canvas>
+        <script src="script1.js"></script>
       </section>
 
       <section class="grid-item">
         <h2 class="section-title">
           Total Profit Percentage by Sub-Category Product
         </h2>
-        <canvas id="totalProfitPercentageBySubCategory"></canvas>
-        <article>
-          <!-- Placeholder untuk konten artikel -->
-        </article>
+        <canvas id="chart2" height="30px" width="30"></canvas>
+        <script src="script2.js"></script>
       </section>
 
       <section class="grid-item">
         <h2 class="section-title">Total Order Percentage by Gender</h2>
-        <canvas id="totalOrderPercentagebyGender"></canvas>
+        <canvas id="chart3" height="30px" width="30"></canvas>
+        <script src="script3.js"></script>
       </section>
 
       <section class="grid-item">
         <h2 class="section-title">Total Order by Age Group</h2>
-        <article>
-          <!-- Placeholder untuk konten artikel -->
-        </article>
+        <canvas id="chart4" height="30px" width="30"></canvas>
+        <script src="script4.js"></script>
       </section>
 
       <section class="grid-item">
         <h2 class="section-title">Customer Total Order by Color Product</h2>
-        <canvas id="customerTotalOrderByColorProduct"></canvas>
-        <article>
-          <!-- Placeholder untuk konten artikel -->
-        </article>
+        <canvas id="chart5" height="30px" width="30"></canvas>
+        <script src="script5.js"></script>
       </section>
     </main>
     <footer>
       <p>&copy; 2024 Dashboard</p>
     </footer>
   </body>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="script.js"></script>
 </html>
