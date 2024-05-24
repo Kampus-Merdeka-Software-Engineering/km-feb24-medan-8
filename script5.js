@@ -29,7 +29,7 @@ fetch('data.json')
 
         // Mengambil label colors
         const colors = sortedColors;
-        
+
         // Mengambil data order untuk masing-masing gender
         const maleOrders = colors.map(color => orderData[color]['Male']);
         const femaleOrders = colors.map(color => orderData[color]['Female']);
@@ -44,15 +44,15 @@ fetch('data.json')
                     {
                         label: 'Male',
                         data: maleOrders,
-                        backgroundColor: '#1f6f6f', 
-                        borderColor: '#1f6f6f', 
+                        backgroundColor: '#1f6f6f',
+                        borderColor: '#1f6f6f',
                         borderWidth: 1
                     },
                     {
                         label: 'Female',
                         data: femaleOrders,
-                        backgroundColor: '#54a1a1', 
-                        borderColor: '#54a1a1', 
+                        backgroundColor: '#54a1a1',
+                        borderColor: '#54a1a1',
                         borderWidth: 1
                     }
                 ]
@@ -60,15 +60,35 @@ fetch('data.json')
             options: {
                 indexAxis: 'x', // Mengatur sumbu X sebagai sumbu kategori
                 scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Colors'
+                        }
+                    },
                     y: {
                         beginAtZero: true,
                         title: {
                             display: true,
-                            text: 'Total Order Quantity'
+                            text: 'Total Order'
+                        }
+                    }
+                },
+                plugins: {
+                    datalabels: {
+                        anchor: 'end',
+                        align: 'end',
+                        formatter: (value, context) => {
+                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');; // Menampilkan nilai
+                        },
+                        color: 'black',
+                        font: {
+                            weight: 'normal'
                         }
                     }
                 }
-            }
+            },
+            plugins: [ChartDataLabels]
         });
     })
     .catch(error => console.error('Error fetching the data:', error));
