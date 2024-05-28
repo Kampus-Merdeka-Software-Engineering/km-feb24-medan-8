@@ -3,18 +3,38 @@
     color: #1f6f6f;
   }
 
-  .total {
-    display: grid;
-    grid-template-columns:auto auto;
-    width: 500px; 
-    place-items: center;
-    margin:0 auto;
-    font-size: 30px;
-    color: gray;
-    font-style: impact;
-    font-style: bold;
-  }
-  
+  .table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding: 3px 20px;
+    text-align: center;
+    vertical-align: middle;
+    border: none; /* No border */
+}
+
+.row1 td {
+    font-family: Impact, sans-serif; /* Impact font */
+    font-size: 15px; /* Font size 25px */
+    color: rgb(145, 143, 143); /* Light gray color */
+    
+}
+
+.row2 td {
+    font-family: Impact, sans-serif; /* Impact font */
+    font-size: 30px; /* Font size 30px */
+    color: rgb(94, 92, 92); /* Dark gray color */
+    
+}
+
  *{
   font-family: "Poppins", sans-serif;
  } 
