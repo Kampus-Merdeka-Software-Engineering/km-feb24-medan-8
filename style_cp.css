@@ -3,57 +3,6 @@
   color: #1f6f6f;
 }
 
- Angka_Total_Profit_dan_Total_Order
-  .table-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-table {
-    border-collapse: collapse;
-}
-
-td {
-    padding: 3px 20px;
-    text-align: center;
-    vertical-align: middle;
-    border: none; /* No border */
-}
-
-.row1 td {
-    font-family: Impact, sans-serif; /* Impact font */
-    font-size: 15px; /* Font size 25px */
-    color: rgb(145, 143, 143); /* Light gray color */
-    
-}
-
-.row2 td {
-    font-family: Impact, sans-serif; /* Impact font */
-    font-size: 30px; /* Font size 30px */
-    color: rgb(94, 92, 92); /* Dark gray color */
-    
-}
-
- *{
-  font-family: "Poppins", sans-serif;
- } 
-  .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-     margin-top: 80px; 
-    flex-grow: 1;
-    
-  }
-  .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    font-size: 10px;
-    text-align: center;
-    padding-bottom: 300px;
-  }
-  .section-title {
-
 .total {
   display: grid;
   grid-template-columns:auto auto;
@@ -74,7 +23,6 @@ font-family: "Poppins", sans-serif;
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 80px; 
   flex-grow: 1;
- develop
   
 }
 .grid-item {
