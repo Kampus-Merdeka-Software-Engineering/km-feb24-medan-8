@@ -1,11 +1,19 @@
-// Mengambil data dari file JSON
-fetch("data.json")
+function loadChart0(stateFiltersValues, countryFiltersValues, subCategoryValues, dateRangeFilterValues) {
+  // Mengambil data dari file JSON
+  fetch("data.json")
   .then((response) => response.json())
   .then((data) => {
+    let filteredData = processFilter(data, 
+      stateFiltersValues || [], 
+      countryFiltersValues || [],
+      subCategoryValues || [],
+      dateRangeFilterValues || []
+    )
+
     // Menghitung total profit untuk setiap country
     let profitData = {};
 
-    data.forEach((item) => {
+    filteredData.forEach((item) => {
       const country = item.Country;
       const profit = parseFloat(item.Profit);
 
@@ -23,9 +31,13 @@ fetch("data.json")
     const countries = sortedData.map((entry) => entry[0]);
     const profits = sortedData.map((entry) => entry[1]);
 
+    // reload chart
+    let chartId = "chart0";
+    destroyChart(chartId)
+
     // Membuat diagram batang
-    const ctx = document.getElementById("chart0").getContext("2d");
-    const chart0 = new Chart(ctx, {
+    const ctx = document.getElementById(chartId).getContext("2d");
+    let chart0 = new Chart(ctx, {
       type: "bar",
       data: {
         labels: countries,
@@ -77,3 +89,6 @@ fetch("data.json")
     });
   })
   .catch((error) => console.error("Error fetching the data:", error));
+}
+
+loadChart0()

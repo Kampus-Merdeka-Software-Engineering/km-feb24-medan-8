@@ -1,77 +1,93 @@
-// Mengambil data dari file JSON
-fetch('data.json')
-  .then(response => response.json())
-  .then(data => {
-    // Menghitung total profit untuk setiap state
-    let profitData = {};
 
-    data.forEach(item => {
-      const state = item.State;
-      const profit = parseFloat(item.Profit);
+function loadChart1(stateFiltersValues, countryFiltersValues, subCategoryValues, dateRangeFilterValues) {
+  // Mengambil data dari file JSON
+  fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
+      
+      let filteredData = processFilter(data, 
+        stateFiltersValues || [], 
+        countryFiltersValues || [],
+        subCategoryValues || [],
+        dateRangeFilterValues || []
+        )
+      
+        // Menghitung total profit untuk setiap state
+      let profitData = {};
 
-      if (profitData[state]) {
-        profitData[state] += profit;
-      } else {
-        profitData[state] = profit;
-      }
-    });
+      filteredData.forEach(item => {
+        const state = item.State;
+        const profit = parseFloat(item.Profit);
 
-    // Mengonversi objek menjadi array untuk diurutkan berdasarkan total profit
-    const sortedData = Object.entries(profitData).sort((a, b) => b[1] - a[1]);
+        if (profitData[state]) {
+          profitData[state] += profit;
+        } else {
+          profitData[state] = profit;
+        }
+      });
 
-    // Membuat array untuk sumbu X dan Y
-    const states = sortedData.map(entry => entry[0]);
-    const profits = sortedData.map(entry => entry[1]);
+      // Mengonversi objek menjadi array untuk diurutkan berdasarkan total profit
+      const sortedData = Object.entries(profitData).sort((a, b) => b[1] - a[1]);
 
-    // Membuat diagram batang horizontal
-    const ctx = document.getElementById('chart1').getContext('2d');
-    const chart1 = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: states,
-        datasets: [{
-          label: 'Total Profit',
-          data: profits,
-          backgroundColor: '#1f6f6f',
-          borderColor: '#1f6f6f',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        indexAxis: 'y', // Mengatur orientasi sumbu X dan Y
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: 'Total Profit'
+      // Membuat array untuk sumbu X dan Y
+      const states = sortedData.map(entry => entry[0]);
+      const profits = sortedData.map(entry => entry[1]);
+      // reload chart
+      let chartId = 'chart1';
+      destroyChart(chartId)
+
+      // Membuat diagram batang horizontal
+      const ctx = document.getElementById(chartId).getContext('2d');
+      const chart1 = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: states,
+          datasets: [{
+            label: 'Total Profit',
+            data: profits,
+            backgroundColor: '#1f6f6f',
+            borderColor: '#1f6f6f',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          indexAxis: 'y', // Mengatur orientasi sumbu X dan Y
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Total Profit'
+              },
+              ticks: {
+                stepSize: 600000 // Mengatur skala setiap 600.000 total profit
+              }
             },
-            ticks: {
-              stepSize: 600000 // Mengatur skala setiap 600.000 total profit
+            y: {
+              title: {
+                display: true,
+                text: 'States'
+              }
             }
           },
-          y: {
-            title: {
-              display: true,
-              text: 'States'
+          plugins: {
+            legend: {
+              display: false
+            },
+            datalabels: {
+              anchor: 'end',
+              align: 'end',
+              clamp: false,
+              formatter: (value, context) => {
+                return '€' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+              },
+              color: 'black'
             }
           }
         },
-        plugins: {
-          legend: {
-            display: false
-          },
-          datalabels: {
-            anchor: 'end',
-            align: 'end',
-            clamp: false,
-            formatter: (value, context) => {
-              return '€' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-            },
-            color: 'black'
-          }
-        }
-      },
-      plugins: [ChartDataLabels]
-    });
-  })
-  .catch(error => console.error('Error fetching the data:', error));
+        plugins: [ChartDataLabels]
+      });
+    })
+    .catch(error => console.error('Error fetching the data:', error))
+};
+
+loadChart1()
