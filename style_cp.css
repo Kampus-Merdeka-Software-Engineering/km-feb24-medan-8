@@ -15,13 +15,45 @@
   font-style: bold;
 }
 
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: 3px 20px;
+  text-align: center;
+  vertical-align: middle;
+  border: none; /* No border */
+}
+
+.row1 td {
+  font-family: Impact, sans-serif; /* Impact font */
+  font-size: 15px; /* Font size 25px */
+  color: rgb(145, 143, 143); /* Light gray color */
+  
+}
+
+.row2 td {
+  font-family: Impact, sans-serif; /* Impact font */
+  font-size: 30px; /* Font size 30px */
+  color: rgb(94, 92, 92); /* Dark gray color */
+  
+}
+
 *{
 font-family: "Poppins", sans-serif;
 } 
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  margin-top: 80px; 
+  /* margin-top: 80px;  */
   flex-grow: 1;
   
 }
@@ -41,10 +73,11 @@ font-family: "Poppins", sans-serif;
   align-items: center;
   height: 45px; 
 }
+
 img {
   max-width: 100%;
   height: auto; */
-} 
+}
 
 /* CSS untuk navbar */
 .navbar {
@@ -143,15 +176,30 @@ gap: 10px;
   font-size: 11px;
 }
 
-
-@media only screen and (max-width: 768px) {
+ @media only screen and (max-width: 768px) {
   .grid-container {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+  .dropdown, .navbar-date {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0; /* Margin for vertical spacing */
+   }
+  .dropbtn {
+    width: 100%;
   }
 }
 
 @media only screen and (max-width: 480px) {
   .grid-container {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
-}
+  .dropbtn, .navbar-date {
+    padding: 10px 16px;
+    font-size: 18px;
+  }
+}  

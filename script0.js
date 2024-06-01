@@ -1,79 +1,96 @@
-// Mengambil data dari file JSON
-fetch("data.json")
-  .then((response) => response.json())
-  .then((data) => {
-    // Menghitung total profit untuk setiap country
-    let profitData = {};
+function loadChart0(stateFiltersValues, countryFiltersValues, subCategoryValues, dateRangeFilterValues) {
+  // Mengambil data dari file JSON
+  fetch("data.json")
+    .then((response) => response.json())
+    .then((data) => {
+      let filteredData = processFilter(data,
+        stateFiltersValues || [],
+        countryFiltersValues || [],
+        subCategoryValues || [],
+        dateRangeFilterValues || []
+      )
 
-    data.forEach((item) => {
-      const country = item.Country;
-      const profit = parseFloat(item.Profit);
+      // Menghitung total profit untuk setiap country
+      let profitData = {};
 
-      if (profitData[country]) {
-        profitData[country] += profit;
-      } else {
-        profitData[country] = profit;
-      }
-    });
+      filteredData.forEach((item) => {
+        const country = item.Country;
+        const profit = parseFloat(item.Profit);
 
-    // Mengonversi objek menjadi array untuk diurutkan berdasarkan total profit
-    const sortedData = Object.entries(profitData).sort((a, b) => b[1] - a[1]);
+        if (profitData[country]) {
+          profitData[country] += profit;
+        } else {
+          profitData[country] = profit;
+        }
+      });
 
-    // Membuat array untuk sumbu X dan Y
-    const countries = sortedData.map((entry) => entry[0]);
-    const profits = sortedData.map((entry) => entry[1]);
+      // Mengonversi objek menjadi array untuk diurutkan berdasarkan total profit
+      const sortedData = Object.entries(profitData).sort((a, b) => b[1] - a[1]);
 
-    // Membuat diagram batang
-    const ctx = document.getElementById("chart0").getContext("2d");
-    const chart0 = new Chart(ctx, {
-      type: "bar",
-      data: {
-        labels: countries,
-        datasets: [
-          {
-            label: "Total Profit",
-            data: profits,
-            backgroundColor: "rgba(31, 111, 111, 1)",
-            borderColor: "rgba(31, 111, 111, 1)",
-            borderWidth: 1,
+      // Membuat array untuk sumbu X dan Y
+      const countries = sortedData.map((entry) => entry[0]);
+      const profits = sortedData.map((entry) => entry[1]);
+
+      // reload chart
+      let chartId = "chart0";
+      destroyChart(chartId)
+
+      // Membuat diagram batang
+      const ctx = document.getElementById(chartId).getContext("2d");
+      let chart0 = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: countries,
+          datasets: [
+            {
+              label: "Total Profit",
+              data: profits,
+              backgroundColor: "rgba(31, 111, 111, 1)",
+              borderColor: "rgba(31, 111, 111, 1)",
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          plugins: {
+            legend: {
+              display: false,
+            },
+            datalabels: {
+              anchor: "end",
+              align: "end",
+              color: "black",
+              formatter: (value) => {
+                // Format angka dengan titik setiap 3 digit
+                return (
+                  "€" + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+                );
+              },
+            },
           },
-        ],
-      },
-      options: {
-        plugins: {
-          legend: {
-            display: false,
-          },
-          datalabels: {
-            anchor: "end",
-            align: "end",
-            color: "black",
-            formatter: (value) => {
-              // Format angka dengan titik setiap 3 digit
-              return (
-                "€" + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
-              );
+          indexAxis: "x",
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: "Total Profit",
+              },
+            },
+            x: {
+              title: {
+                display: true,
+                text: "Countries",
+              },
             },
           },
         },
-        indexAxis: "x",
-        scales: {
-          y: {
-            beginAtZero: true,
-            title: {
-              display: true,
-              text: "Total Profit",
-            },
-          },
-          x: {
-            title: {
-              display: true,
-              text: "Countries",
-            },
-          },
-        },
-      },
-      plugins: [ChartDataLabels],
-    });
-  })
-  .catch((error) => console.error("Error fetching the data:", error));
+        plugins: [ChartDataLabels],
+      });
+    })
+    .catch((error) => console.error("Error fetching the data:", error));
+}
+
+loadChart0()
