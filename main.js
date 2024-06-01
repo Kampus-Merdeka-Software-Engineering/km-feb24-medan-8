@@ -1,4 +1,3 @@
-
 let stateFilters = []
 let countryFilters = []
 let subCategoryFilters = []
@@ -29,6 +28,12 @@ function handleOnChangeDateRange(element) {
 function reloadAllCharts() {
     loadChart0(stateFilters, countryFilters, subCategoryFilters, dateRangeFilter)
     loadChart1(stateFilters, countryFilters, subCategoryFilters, dateRangeFilter)
+    loadChart2(stateFilters, countryFilters, subCategoryFilters, dateRangeFilter)
+    loadChart3(stateFilters, countryFilters, subCategoryFilters, dateRangeFilter)
+    loadChart4(stateFilters, countryFilters, subCategoryFilters, dateRangeFilter)
+    loadChart5(stateFilters, countryFilters, subCategoryFilters, dateRangeFilter)
+    calculateTotalProfit(stateFilters, countryFilters, subCategoryFilters, dateRangeFilter)
+    calculateTotalOrder(stateFilters, countryFilters, subCategoryFilters, dateRangeFilter)
 }
 
 function getDateRange() {

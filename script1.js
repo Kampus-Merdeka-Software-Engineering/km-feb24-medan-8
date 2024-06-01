@@ -4,15 +4,15 @@ function loadChart1(stateFiltersValues, countryFiltersValues, subCategoryValues,
   fetch('data.json')
     .then(response => response.json())
     .then(data => {
-      
-      let filteredData = processFilter(data, 
-        stateFiltersValues || [], 
+
+      let filteredData = processFilter(data,
+        stateFiltersValues || [],
         countryFiltersValues || [],
         subCategoryValues || [],
         dateRangeFilterValues || []
-        )
-      
-        // Menghitung total profit untuk setiap state
+      )
+
+      // Menghitung total profit untuk setiap state
       let profitData = {};
 
       filteredData.forEach(item => {
@@ -51,6 +51,8 @@ function loadChart1(stateFiltersValues, countryFiltersValues, subCategoryValues,
           }]
         },
         options: {
+          responsive: true,
+          maintainAspectRatio: true,
           indexAxis: 'y', // Mengatur orientasi sumbu X dan Y
           scales: {
             x: {
