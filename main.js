@@ -134,3 +134,21 @@ document.getElementById('endDate').addEventListener('change', function() {
     this.value = validateDate(selectedDate, '2016-06-30');
     checkDateRange();
 });
+
+window.onload = function() {
+    let countryCheckboxes = document.querySelectorAll('input[type=checkbox][name="country"]');
+    let stateCheckboxes = document.querySelectorAll('input[type=checkbox][name="state"]');
+    let subcategoryCheckboxes = document.querySelectorAll('input[type=checkbox][name="subcategory"]');
+    countryCheckboxes.forEach(checkbox => {
+        checkbox.checked = true;
+        handleOnCountryFilter(checkbox);
+    });
+    stateCheckboxes.forEach(checkbox => {
+        checkbox.checked = true;
+        handleOnStateFilter(checkbox);
+    });
+    subcategoryCheckboxes.forEach(checkbox => {
+        checkbox.checked = true;
+        handleOnSubCategoryFilter(checkbox);
+    });
+};
