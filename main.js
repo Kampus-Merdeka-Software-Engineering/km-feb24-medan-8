@@ -26,8 +26,8 @@ function handleOnChangeDateRange(element) {
 }
 
 function reloadAllCharts() {
-    loadChart0(stateFilters, countryFilters, subCategoryFilters, dateRangeFilter)
-    loadChart1(stateFilters, countryFilters, subCategoryFilters, dateRangeFilter)
+    loadTotalProfitByCountry(stateFilters, countryFilters, subCategoryFilters, dateRangeFilter)
+    loadTotalProfitByState(stateFilters, countryFilters, subCategoryFilters, dateRangeFilter)
     loadChart2(stateFilters, countryFilters, subCategoryFilters, dateRangeFilter)
     loadChart3(stateFilters, countryFilters, subCategoryFilters, dateRangeFilter)
     loadChart4(stateFilters, countryFilters, subCategoryFilters, dateRangeFilter)

@@ -1,5 +1,5 @@
 
-function loadChart1(stateFiltersValues, countryFiltersValues, subCategoryValues, dateRangeFilterValues) {
+function loadTotalProfitByState(stateFiltersValues, countryFiltersValues, subCategoryValues, dateRangeFilterValues) {
   // Mengambil data dari file JSON
   fetch('data.json')
     .then(response => response.json())
@@ -27,18 +27,18 @@ function loadChart1(stateFiltersValues, countryFiltersValues, subCategoryValues,
       });
 
       // Mengonversi objek menjadi array untuk diurutkan berdasarkan total profit
-      const sortedData = Object.entries(profitData).sort((a, b) => b[1] - a[1]);
+      const sortedData = Object.entries(profitData).sort((firstData, secondData) => secondData[1] - firstData[1]);
 
       // Membuat array untuk sumbu X dan Y
       const states = sortedData.map(entry => entry[0]);
       const profits = sortedData.map(entry => entry[1]);
       // reload chart
-      let chartId = 'chart1';
+      let chartId = 'chart-total-profit-by-state';
       destroyChart(chartId)
 
       // Membuat diagram batang horizontal
       const ctx = document.getElementById(chartId).getContext('2d');
-      const chart1 = new Chart(ctx, {
+      const TotalProfitByState = new Chart(ctx, {
         type: 'bar',
         data: {
           labels: states,
@@ -92,4 +92,4 @@ function loadChart1(stateFiltersValues, countryFiltersValues, subCategoryValues,
     .catch(error => console.error('Error fetching the data:', error))
 };
 
-loadChart1()
+loadTotalProfitByState()
