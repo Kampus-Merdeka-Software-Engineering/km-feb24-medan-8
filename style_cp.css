@@ -176,7 +176,7 @@ gap: 10px;
   font-size: 11px;
 }
 
- @media only screen and (max-width: 768px) {
+   @media only screen and (max-width: 768px) {
   .grid-container {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
@@ -187,19 +187,21 @@ gap: 10px;
   .dropdown, .navbar-date {
     width: 100%;
     text-align: center;
-    margin: 5px 0; /* Margin for vertical spacing */
-   }
+    margin: 5px 0; 
+    }
   .dropbtn {
     width: 100%;
   }
-}
+} 
 
-@media only screen and (max-width: 480px) {
-  .grid-container {
+ @media only screen and (max-width: 480px) { 
+   .grid-container {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
   .dropbtn, .navbar-date {
     padding: 10px 16px;
     font-size: 18px;
-  }
-}  
+  } } 
+ 
+
+  
