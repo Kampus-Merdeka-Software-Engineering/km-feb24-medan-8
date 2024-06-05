@@ -38,15 +38,15 @@ td {
 }
 
 .row1 td {
-  font-family: Impact, sans-serif; /* Impact font */
-  font-size: 20px; /* Font size 25px */
+  font-family: Impact, sans-serif;
+  font-size: 20px;
   color: rgb(145, 143, 143); /* Light gray color */
   
 }
 
 .row2 td {
-  font-family: Impact, sans-serif; /* Impact font */
-  font-size: 30px; /* Font size 30px */
+  font-family: Impact, sans-serif;
+  font-size: 30px;
   color: rgb(94, 92, 92); /* Dark gray color */
   
 }
@@ -57,7 +57,6 @@ font-family: "Poppins", sans-serif;
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  /* margin-top: 80px;  */
   flex-grow: 1;
   
 }
@@ -93,7 +92,6 @@ img {
 .navbar-date {
 float: left;
 overflow: hidden;
-/*margin: 0 10px;*/
 box-shadow: inset 3px 0 5px -2px rgba(0, 0, 0, 0.2);
 border-left: 0.5px solid #9f9f9f;
 background-color: #1f6f6f;  
@@ -106,7 +104,6 @@ gap: 10px;
 .dropdown {
   float: left;
   overflow: hidden;
-  /*margin: 0 10px;*/
   box-shadow: inset 3px 0 5px -2px rgba(0, 0, 0, 0.2);
   border-left: 0.5px solid #9f9f9f;
   background-color: #1f6f6f;
@@ -129,7 +126,6 @@ gap: 10px;
 
 .navbar a:hover, .dropdown:hover .dropbtn {
   background-color: #3a7777;
-  /*color: black;*/
 }
 
 .dropdown-content {
@@ -182,7 +178,7 @@ gap: 10px;
 
 @media (max-width: 1200px) {
   .title {
-    font-size: 4vw; /* Adjust font size for smaller screens */
+    font-size: 4vw;
    }
    .row1 td {
     font-size: 18px;
@@ -209,7 +205,7 @@ gap: 10px;
     width: 100%;
   }
   .title {
-    font-size: 5vw; /* Ubah ukuran font untuk layar dengan lebar maksimum 768px */
+    font-size: 5vw;
   }
   .row1 td {
     font-size: 17px;
@@ -228,7 +224,7 @@ gap: 10px;
     font-size: 18px;
   }
   .title {
-    font-size: 6vw; /* Ubah ukuran font untuk layar dengan lebar maksimum 480px */
+    font-size: 6vw;
   }
   .row1 td {
     font-size: 16px;
