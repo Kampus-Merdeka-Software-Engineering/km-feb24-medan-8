@@ -71,7 +71,7 @@ function isOnDateRange(countryData, dateRange) {
     let startDate = new Date(dateRange[0])
     let endDate = new Date(dateRange[1])
 
-    if (startDate > endDate) return false;
+    if (startDate > endDate) return true;
 
     return parseDate(countryData["Date"]) > startDate && parseDate(countryData["Date"]) < endDate
 }
@@ -88,32 +88,49 @@ function parseDate(dateString) {
     return new Date(year, month - 1, day);
 }
 
-document.getElementById('startDate').addEventListener('change', function() {
-    // Ambil nilai dari date picker
-    const selectedDate = new Date(this.value);
+// Definisikan batas tanggal di luar fungsi event listener
+const StartDate = new Date('2011-01-01');
+const EndDate = new Date('2016-06-30');
 
-    // Definisikan batas tanggal
-    const StartDate = new Date('2011-01-01');
-    const EndDate = new Date('2016-06-30');
-
-    // Cek apakah tanggal yang dipilih berada di luar rentang
+// Fungsi untuk memvalidasi tanggal
+function validateDate(selectedDate, defaultValue) {
     if (selectedDate < StartDate || selectedDate > EndDate) {
         alert("Data is not available. Please select a date between 1 January 2011 to 30 June 2016");
-        this.value = "2011-01-01"; 
+        return defaultValue;
     }
+    return selectedDate.toISOString().split('T')[0]; // Mengembalikan tanggal dalam format yyyy-mm-dd
+}
+
+// Fungsi untuk memeriksa apakah startDate lebih besar dari endDate dan mengatur tanggal default
+function checkDateRange() {
+    const startDateInput = document.getElementById('startDate');
+    const endDateInput = document.getElementById('endDate');
+    
+    const startDateValue = startDateInput.value;
+    const endDateValue = endDateInput.value;
+    
+    if (startDateValue && endDateValue) {
+        const startDate = new Date(startDateValue);
+        const endDate = new Date(endDateValue);
+        
+        if (startDate > endDate) {
+            alert("Start date cannot be later than end date.");
+            startDateInput.value = '2011-01-01';
+            endDateInput.value = '2016-06-30';
+        }
+    }
+}
+
+// Event listener untuk startDate
+document.getElementById('startDate').addEventListener('change', function() {
+    const selectedDate = new Date(this.value);
+    this.value = validateDate(selectedDate, '2011-01-01');
+    checkDateRange();
 });
 
+// Event listener untuk endDate
 document.getElementById('endDate').addEventListener('change', function() {
-    // Ambil nilai dari date picker
     const selectedDate = new Date(this.value);
-
-    // Definisikan batas tanggal
-    const StartDate = new Date('2011-01-01');
-    const EndDate = new Date('2016-06-30');
-
-    // Cek apakah tanggal yang dipilih berada di luar rentang
-    if (selectedDate < StartDate || selectedDate > EndDate) {
-        alert("Data is not available. Please select a date between 1 January 2011 to 30 June 2016");
-        this.value = "2016-06-30";
-    }
+    this.value = validateDate(selectedDate, '2016-06-30');
+    checkDateRange();
 });
