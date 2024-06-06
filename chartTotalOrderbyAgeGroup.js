@@ -32,7 +32,7 @@ function loadTotalOrderbyAge(stateFiltersValues, countryFiltersValues, subCatego
       const orders = sortedData.map(entry => entry[1]);
 
       // reload chart
-      let chartId = 'chart-total-order-by-age-group';
+      let chartId = "chart-total-order-by-age-group";
       destroyChart(chartId)
 
       // Membuat diagram batang
