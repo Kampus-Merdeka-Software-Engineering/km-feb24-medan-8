@@ -1,14 +1,20 @@
-function loadChart0(stateFiltersValues, countryFiltersValues, subCategoryValues, dateRangeFilterValues) {
+function loadTotalProfitByCountry(
+  stateFiltersValues,
+  countryFiltersValues,
+  subCategoryValues,
+  dateRangeFilterValues
+) {
   // Mengambil data dari file JSON
   fetch("data.json")
     .then((response) => response.json())
     .then((data) => {
-      let filteredData = processFilter(data,
+      let filteredData = processFilter(
+        data,
         stateFiltersValues || [],
         countryFiltersValues || [],
         subCategoryValues || [],
         dateRangeFilterValues || []
-      )
+      );
 
       // Menghitung total profit untuk setiap country
       let profitData = {};
@@ -25,19 +31,21 @@ function loadChart0(stateFiltersValues, countryFiltersValues, subCategoryValues,
       });
 
       // Mengonversi objek menjadi array untuk diurutkan berdasarkan total profit
-      const sortedData = Object.entries(profitData).sort((a, b) => b[1] - a[1]);
+      const sortedData = Object.entries(profitData).sort(
+        (firstData, secondData) => secondData[1] - firstData[1]
+      );
 
       // Membuat array untuk sumbu X dan Y
       const countries = sortedData.map((entry) => entry[0]);
       const profits = sortedData.map((entry) => entry[1]);
 
       // reload chart
-      let chartId = "chart0";
-      destroyChart(chartId)
+      let chartId = "chart-total-profit-by-country";
+      destroyChart(chartId);
 
       // Membuat diagram batang
       const ctx = document.getElementById(chartId).getContext("2d");
-      let chart0 = new Chart(ctx, {
+      let chartTotalProfitByCountry = new Chart(ctx, {
         type: "bar",
         data: {
           labels: countries,
@@ -93,4 +101,4 @@ function loadChart0(stateFiltersValues, countryFiltersValues, subCategoryValues,
     .catch((error) => console.error("Error fetching the data:", error));
 }
 
-loadChart0()
+loadTotalProfitByCountry();

@@ -1,4 +1,4 @@
-function loadChart3(stateFiltersValues, countryFiltersValues, subCategoryValues, dateRangeFilterValues) {
+function loadTotalOrderByGender(stateFiltersValues, countryFiltersValues, subCategoryValues, dateRangeFilterValues) {
   // Mengambil data dari file JSON
   fetch('data.json')
     .then(response => response.json())
@@ -29,7 +29,7 @@ function loadChart3(stateFiltersValues, countryFiltersValues, subCategoryValues,
       const totalOrders = Object.values(orderData).reduce((sum, order) => sum + order, 0);
 
       // Mengonversi objek menjadi array untuk diurutkan berdasarkan total order
-      const sortedData = Object.entries(orderData).sort((a, b) => b[1] - a[1]);
+      const sortedData = Object.entries(orderData).sort((firstData, secondData) => secondData[1] - firstData[1]);
 
       // Membuat array untuk labels (genders) dan data (orders)
       const genders = sortedData.map(entry => entry[0]);
@@ -42,12 +42,12 @@ function loadChart3(stateFiltersValues, countryFiltersValues, subCategoryValues,
       const backgroundColors = percentages.map((_, index) => colors[index % colors.length]);
 
       // reload chart
-      let chartId = 'chart3';
+      let chartId = 'chart-total-order-by-gender';
       destroyChart(chartId)
 
       // Membuat diagram pie
       const ctx = document.getElementById(chartId).getContext('2d');
-      const chart3 = new Chart(ctx, {
+      const chartTotalOrderByGender = new Chart(ctx, {
         type: 'pie',
         data: {
           labels: genders,
@@ -93,4 +93,4 @@ function loadChart3(stateFiltersValues, countryFiltersValues, subCategoryValues,
     .catch(error => console.error('Error fetching the data:', error));
 };
 
-loadChart3()
+loadTotalOrderByGender()

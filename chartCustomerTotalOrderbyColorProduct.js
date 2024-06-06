@@ -1,4 +1,4 @@
-function loadChart5(stateFiltersValues, countryFiltersValues, subCategoryValues, dateRangeFilterValues) {
+function loadCustomerTotalOrderbyColorProduct(stateFiltersValues, countryFiltersValues, subCategoryValues, dateRangeFilterValues) {
     // Mengambil data dari file JSON
     fetch('data.json')
         .then(response => response.json())
@@ -30,9 +30,9 @@ function loadChart5(stateFiltersValues, countryFiltersValues, subCategoryValues,
             });
 
             // Mengurutkan data berdasarkan total order untuk setiap warna
-            const sortedColors = Object.keys(orderData).sort((a, b) => {
-                const totalOrderA = orderData[a]['Male'] + orderData[a]['Female'];
-                const totalOrderB = orderData[b]['Male'] + orderData[b]['Female'];
+            const sortedColors = Object.keys(orderData).sort((firstData, secondData) => {
+                const totalOrderA = orderData[firstData]['Male'] + orderData[firstData]['Female'];
+                const totalOrderB = orderData[secondData]['Male'] + orderData[secondData]['Female'];
                 return totalOrderB - totalOrderA;
             });
 
@@ -44,12 +44,12 @@ function loadChart5(stateFiltersValues, countryFiltersValues, subCategoryValues,
             const femaleOrders = colors.map(color => orderData[color]['Female']);
 
             // reload chart
-            let chartId = 'chart5';
+            let chartId = 'chart-customer-total-order-by-color-product';
             destroyChart(chartId)
 
             // Membuat double bar chart
             const ctx = document.getElementById(chartId).getContext('2d');
-            const chart5 = new Chart(ctx, {
+            const chartCustomerTotalOrderbyColorProduct = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: colors,
@@ -109,4 +109,4 @@ function loadChart5(stateFiltersValues, countryFiltersValues, subCategoryValues,
         .catch(error => console.error('Error fetching the data:', error));
 };
 
-loadChart5()
+loadCustomerTotalOrderbyColorProduct()
