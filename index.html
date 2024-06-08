@@ -35,15 +35,15 @@
             <i class="fa fa-caret-down arrow-down"></i>
           </button>
           <div class="dropdown-content">
+            <label><input type="checkbox" name="country" value="France" onchange="handleOnCountryFilter(this)"
+                checked />
+              France</label>
             <label><input type="checkbox" name="country" value="Germany" onchange="handleOnCountryFilter(this)"
                 checked />
               Germany</label>
             <label><input type="checkbox" name="country" value="United Kingdom" onchange="handleOnCountryFilter(this)"
                 checked />
               United Kingdom</label>
-            <label><input type="checkbox" name="country" value="France" onchange="handleOnCountryFilter(this)"
-                checked />
-              France</label>
           </div>
         </div>
         <div class="dropdown">
@@ -52,53 +52,55 @@
             <i class="fa fa-caret-down arrow-down"></i>
           </button>
           <div class="dropdown-content">
-            <label><input type="checkbox" name="state" value="England" onchange="handleOnStateFilter(this)" />
-              England</label>
-            <label><input type="checkbox" name="state" value="Saarland" onchange="handleOnStateFilter(this)" />
-              Saarland</label>
-            <label><input type="checkbox" name="state" value="Hessen" onchange="handleOnStateFilter(this)" />
-              Hessen</label>
-            <label><input type="checkbox" name="state" value="Nordrhein-Westfalen"
-                onchange="handleOnStateFilter(this)" />
-              Nordrhein-Westfalen</label>
-            <label><input type="checkbox" name="state" value="Seine (Paris)" onchange="handleOnStateFilter(this)" />
-              Seine (Paris)</label>
-            <label><input type="checkbox" name="state" value="Hamburg" onchange="handleOnStateFilter(this)" />
-              Hamburg</label>
-            <label><input type="checkbox" name="state" value="Bayern" onchange="handleOnStateFilter(this)" />
-              Bayern</label>
-            <label><input type="checkbox" name="state" value="Nord" onchange="handleOnStateFilter(this)" />
-              Nord</label>
-            <label><input type="checkbox" name="state" value="Seine Saint Denis" onchange="handleOnStateFilter(this)" />
-              Seine Saint Denis</label>
-            <label><input type="checkbox" name="state" value="Yveline" onchange="handleOnStateFilter(this)" />
-              Yveline</label>
-            <label><input type="checkbox" name="state" value="Essonne" onchange="handleOnStateFilter(this)" />
-              Essonne</label>
-            <label><input type="checkbox" name="state" value="Hauts de Seine" onchange="handleOnStateFilter(this)" />
-              Hauts de Seine</label>
-            <label><input type="checkbox" name="state" value="Seine et Marne" onchange="handleOnStateFilter(this)" />
-              Seine et Marne</label>
-            <label><input type="checkbox" name="state" value="Loiret" onchange="handleOnStateFilter(this)" />
-              Loiret</label>
-            <label><input type="checkbox" name="state" value="Moselle" onchange="handleOnStateFilter(this)" />
-              Moselle</label>
-            <label><input type="checkbox" name="state" value="Garonne (Haute)" onchange="handleOnStateFilter(this)" />
-              Garonne</label>
-            <label><input type="checkbox" name="state" value="Brandenburg" onchange="handleOnStateFilter(this)" />
-              Brandenburg</label>
-            <label><input type="checkbox" name="state" value="Val d'Oise" onchange="handleOnStateFilter(this)" />
-              Val d'Oise</label>
-            <label><input type="checkbox" name="state" value="Val de Marne" onchange="handleOnStateFilter(this)" />
-              Val de Marne</label>
-            <label><input type="checkbox" name="state" value="Charente-Maritime" onchange="handleOnStateFilter(this)" />
-              Charente-Maritime</label>
-            <label><input type="checkbox" name="state" value="Loir et Cher" onchange="handleOnStateFilter(this)" />
-              Loir et Cher</label>
-            <label><input type="checkbox" name="state" value="Somme" onchange="handleOnStateFilter(this)" />
-              Somme</label>
-            <label><input type="checkbox" name="state" value="Pas de Calais" onchange="handleOnStateFilter(this)" />
-              Pas de Calais</label>
+            <div class="country-state">State in France</div>
+              <label><input type="checkbox" name="state" value="Charente-Maritime" onchange="handleOnStateFilter(this)" />
+                Charente-Maritime</label>
+              <label><input type="checkbox" name="state" value="Essonne" onchange="handleOnStateFilter(this)" />
+                Essonne</label>
+              <label><input type="checkbox" name="state" value="Garonne (Haute)" onchange="handleOnStateFilter(this)" />
+                Garonne</label>
+              <label><input type="checkbox" name="state" value="Hauts de Seine" onchange="handleOnStateFilter(this)" />
+                Hauts de Seine</label>
+              <label><input type="checkbox" name="state" value="Loir et Cher" onchange="handleOnStateFilter(this)" />
+                Loir et Cher</label>
+              <label><input type="checkbox" name="state" value="Loiret" onchange="handleOnStateFilter(this)" />
+                Loiret</label>
+              <label><input type="checkbox" name="state" value="Moselle" onchange="handleOnStateFilter(this)" />
+                Moselle</label>
+              <label><input type="checkbox" name="state" value="Nord" onchange="handleOnStateFilter(this)" />
+                Nord</label>
+              <label><input type="checkbox" name="state" value="Pas de Calais" onchange="handleOnStateFilter(this)" />
+                Pas de Calais</label>
+              <label><input type="checkbox" name="state" value="Seine (Paris)" onchange="handleOnStateFilter(this)" />
+                Seine (Paris)</label>
+              <label><input type="checkbox" name="state" value="Seine et Marne" onchange="handleOnStateFilter(this)" />
+                Seine et Marne</label>
+              <label><input type="checkbox" name="state" value="Seine Saint Denis" onchange="handleOnStateFilter(this)" />
+                Seine Saint Denis</label>
+              <label><input type="checkbox" name="state" value="Somme" onchange="handleOnStateFilter(this)" />
+                Somme</label>
+              <label><input type="checkbox" name="state" value="Val d'Oise" onchange="handleOnStateFilter(this)" />
+                Val d'Oise</label>
+              <label><input type="checkbox" name="state" value="Val de Marne" onchange="handleOnStateFilter(this)" />
+                Val de Marne</label>
+              <label><input type="checkbox" name="state" value="Yveline" onchange="handleOnStateFilter(this)" />
+                Yveline</label>
+            <div class="country-state">State in Germany</div>
+              <label><input type="checkbox" name="state" value="Bayern" onchange="handleOnStateFilter(this)" />
+                Bayern</label>
+              <label><input type="checkbox" name="state" value="Brandenburg" onchange="handleOnStateFilter(this)" />
+                Brandenburg</label>
+              <label><input type="checkbox" name="state" value="Hamburg" onchange="handleOnStateFilter(this)" />
+                Hamburg</label>
+              <label><input type="checkbox" name="state" value="Hessen" onchange="handleOnStateFilter(this)" />
+                Hessen</label>
+              <label><input type="checkbox" name="state" value="Nordrhein-Westfalen" onchange="handleOnStateFilter(this)" />
+                Nordrhein-Westfalen</label>
+              <label><input type="checkbox" name="state" value="Saarland" onchange="handleOnStateFilter(this)" />
+                Saarland</label>
+            <div class="country-state">State in United Kingdom</div>
+              <label><input type="checkbox" name="state" value="England" onchange="handleOnStateFilter(this)" />
+                England</label>
           </div>
         </div>
         <div class="dropdown">
