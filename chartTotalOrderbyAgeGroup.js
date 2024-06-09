@@ -1,4 +1,4 @@
-function loadTotalOrderbyAge(stateFiltersValues, countryFiltersValues, subCategoryValues, dateRangeFilterValues) {
+function loadChartTotalOrderByAgeGroup(stateFiltersValues, countryFiltersValues, subCategoryValues, dateRangeFilterValues) {
   fetch('data.json')
     .then(response => response.json())
     .then(data => {
@@ -91,4 +91,4 @@ function loadTotalOrderbyAge(stateFiltersValues, countryFiltersValues, subCatego
     .catch(error => console.error('Error fetching the data:', error));
 };
 
-loadTotalOrderbyAge()
+loadChartTotalOrderByAgeGroup()
