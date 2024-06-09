@@ -1,4 +1,4 @@
-function loadCustomerTotalOrderbyColorProduct(stateFiltersValues, countryFiltersValues, subCategoryValues, dateRangeFilterValues) {
+function loadChartCustomerTotalOrderByColorProduct(stateFiltersValues, countryFiltersValues, subCategoryValues, dateRangeFilterValues) {
     // Mengambil data dari file JSON
     fetch('data.json')
         .then(response => response.json())
@@ -44,7 +44,7 @@ function loadCustomerTotalOrderbyColorProduct(stateFiltersValues, countryFilters
             const femaleOrders = colors.map(color => orderData[color]['Female']);
 
             // reload chart
-            let chartId = 'chart-customer-total-order-by-color-product';
+            let chartId = "chart-customer-total-order-by-color-product";
             destroyChart(chartId)
 
             // Membuat double bar chart
@@ -109,4 +109,4 @@ function loadCustomerTotalOrderbyColorProduct(stateFiltersValues, countryFilters
         .catch(error => console.error('Error fetching the data:', error));
 };
 
-loadCustomerTotalOrderbyColorProduct()
+loadChartCustomerTotalOrderByColorProduct()

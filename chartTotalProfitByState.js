@@ -1,4 +1,4 @@
-function loadTotalProfitByState(
+function loadChartTotalProfitByState(
   stateFiltersValues,
   countryFiltersValues,
   subCategoryValues,
@@ -102,4 +102,4 @@ function loadTotalProfitByState(
     .catch((error) => console.error("Error fetching the data:", error));
 }
 
-loadTotalProfitByState();
+loadChartTotalProfitByState();

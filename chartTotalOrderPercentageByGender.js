@@ -1,4 +1,4 @@
-function loadTotalOrderByGender(stateFiltersValues, countryFiltersValues, subCategoryValues, dateRangeFilterValues) {
+function loadChartTotalOrderPercentageByGender(stateFiltersValues, countryFiltersValues, subCategoryValues, dateRangeFilterValues) {
   // Mengambil data dari file JSON
   fetch('data.json')
     .then(response => response.json())
@@ -42,7 +42,7 @@ function loadTotalOrderByGender(stateFiltersValues, countryFiltersValues, subCat
       const backgroundColors = percentages.map((_, index) => colors[index % colors.length]);
 
       // reload chart
-      let chartId = 'chart-total-order-by-gender';
+      let chartId = "chart-total-order-percentage-by-gender";
       destroyChart(chartId)
 
       // Membuat diagram pie
@@ -93,4 +93,4 @@ function loadTotalOrderByGender(stateFiltersValues, countryFiltersValues, subCat
     .catch(error => console.error('Error fetching the data:', error));
 };
 
-loadTotalOrderByGender()
+loadChartTotalOrderPercentageByGender()

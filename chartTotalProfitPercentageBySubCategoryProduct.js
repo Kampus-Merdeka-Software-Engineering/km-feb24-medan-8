@@ -1,4 +1,4 @@
-function loadTotalProfitBySubCategory(
+function loadChartTotalProfitPercentageBySubCategoryProduct(
   stateFiltersValues,
   countryFiltersValues,
   subCategoryValues,
@@ -56,7 +56,7 @@ function loadTotalProfitBySubCategory(
       );
 
       // reload chart
-      let chartId = "chart-total-profit-by-subcategory";
+      let chartId = "chart-total-profit-percentage-by-subcategory-product";
       destroyChart(chartId);
 
       // Membuat diagram doughnut
@@ -109,4 +109,4 @@ function loadTotalProfitBySubCategory(
     .catch((error) => console.error("Error fetching the data:", error));
 }
 
-loadTotalProfitBySubCategory();
+loadChartTotalProfitPercentageBySubCategoryProduct();

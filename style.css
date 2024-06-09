@@ -1,7 +1,7 @@
 .title {
   text-align: center;
   color: #1f6f6f;
-  font-size: 3vw;
+  font-size: 3.5vw;
   margin-bottom: 0;
   margin-top: 20px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -89,16 +89,23 @@ img {
   justify-content: center; 
   margin-bottom: 9px;
 }
+
 .navbar-date {
 float: left;
 overflow: hidden;
-box-shadow: inset 3px 0 5px -2px rgba(0, 0, 0, 0.2);
+box-shadow: inset 0 0 5px -2px rgba(0, 0, 0, 0.2);
 border-left: 0.5px solid #9f9f9f;
 background-color: #1f6f6f;  
 display: flex;
 color: white;
 align-items: center;
+padding: 0 16px;
 gap: 10px;
+}
+
+.date-picker {
+  width: 100%;
+  max-width: 100px;
 }
  
 .dropdown {
@@ -118,7 +125,7 @@ gap: 10px;
   border: none;
   outline: none;
   color: white;
-  padding: 21px 16px;
+  padding: 10px 16px;
   background-color: inherit;
   font-family: inherit;
   margin: 0;
@@ -132,10 +139,18 @@ gap: 10px;
   display: none;
   position: absolute;
   background-color: #1f6f6f;
-  min-width: 160px;
+  width: 1fr;
   z-index: 1;
   max-height: 200px; /* Maximum height for the dropdown */
   overflow-y: auto; /* Enable vertical scroll */
+}
+
+.country-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1f6f6f;
+  background-color: #9fc8c8;
 }
 
 .dropdown-content label {
@@ -192,6 +207,11 @@ gap: 10px;
   .row2 td {
     font-size: 26px;
   }
+  .dropbtn {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+  }
 }
 
  @media only screen and (max-width: 1200px) {
@@ -204,9 +224,14 @@ gap: 10px;
   }
   .dropdown, .navbar-date {
     width: 100%;
+    font-size: 13px;
     text-align: center;
     margin: 5px 0; /* Margin for vertical spacing */
-   }
+  }
+  .navbar-date {
+    padding: 5px 0;
+    padding-left: 19px;
+  }
   .dropbtn {
     width: 100%;
   }
@@ -219,18 +244,28 @@ gap: 10px;
   .row2 td {
     font-size: 25px;
   }
+  .dropbtn {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+  }
+  .dropdown .dropbtn {
+    padding: 7px 10px;
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
 }
 
 @media only screen and (max-width: 480px) {
   .grid-container {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
-  .dropbtn, .navbar-date {
+  .dropbtn{
     padding: 10px 16px;
     font-size: 18px;
   }
   .title {
-    font-size: 6vw;
+    font-size: 7vw;
   }
   .row1 td {
     font-size: 16px;
@@ -238,4 +273,28 @@ gap: 10px;
   .row2 td {
     font-size: 24px;
   }
-}  
+  .dropbtn {
+    padding: 7px 10px;
+    font-size: 13px;
+    margin-bottom: 2px;
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+  }
+  .dropdown{
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+  .dropdown:last-child {
+    display: none;
+  }
+  .navbar-date {
+    padding: 5px 10px;
+    font-size: 13px;
+    margin-bottom: 0px;
+    display: block;
+  }
+  .date-picker {
+    width: 100%;
+  }
+}

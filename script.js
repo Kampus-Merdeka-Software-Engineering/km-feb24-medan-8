@@ -3,14 +3,45 @@ let countryFilters = [];
 let subCategoryFilters = [];
 let dateRangeFilter = [];
 
+const countryToStatesMap = {
+  Germany: ["Bayern", "Hessen", "Nordrhein-Westfalen", "Saarland", "Hamburg", "Brandenburg"],
+  France: ["Nord", "Seine (Paris)", "Seine Saint Denis", "Yveline", "Essonne", "Hauts de Seine", "Seine et Marne", "Loiret", "Moselle", "Garonne (Haute)", "Val d'Oise", "Val de Marne", "Charente-Maritime", "Loir et Cher", "Somme", "Pas de Calais"],
+  "United Kingdom": ["England"],
+};
+
 function handleOnCountryFilter(element) {
   countryFilters = updateFilter(element, countryFilters);
+  updateStateFiltersBasedOnCountry();
   reloadAllCharts();
 }
 
 function handleOnStateFilter(element) {
   stateFilters = updateFilter(element, stateFilters);
   reloadAllCharts();
+}
+
+function updateStateFiltersBasedOnCountry() {
+  let stateCheckboxes = document.querySelectorAll(
+    'input[type=checkbox][name="state"]'
+  );
+  stateCheckboxes.forEach((checkbox) => {
+    checkbox.checked = false;
+    checkbox.disabled = true;
+  });
+
+  countryFilters.forEach((country) => {
+    let states = countryToStatesMap[country] || [];
+    states.forEach((state) => {
+      let checkbox = document.querySelector(
+        `input[type=checkbox][name="state"][value="${state}"]`
+      );
+      if (checkbox) {
+        checkbox.checked = true;
+        checkbox.disabled = false;
+        stateFilters = updateFilter(checkbox, stateFilters);
+      }
+    });
+  });
 }
 
 function handleOnSubCategoryFilter(element) {
@@ -24,37 +55,37 @@ function handleOnChangeDateRange(element) {
 }
 
 function reloadAllCharts() {
-  loadTotalProfitByCountry(
+  loadChartTotalProfitByCountry(
     stateFilters,
     countryFilters,
     subCategoryFilters,
     dateRangeFilter
   );
-  loadTotalProfitByState(
+  loadChartTotalProfitByState(
     stateFilters,
     countryFilters,
     subCategoryFilters,
     dateRangeFilter
   );
-  loadTotalProfitBySubCategory(
+  loadChartTotalProfitPercentageBySubCategoryProduct(
     stateFilters,
     countryFilters,
     subCategoryFilters,
     dateRangeFilter
   );
-  loadTotalOrderByGender(
+  loadChartTotalOrderPercentageByGender(
     stateFilters,
     countryFilters,
     subCategoryFilters,
     dateRangeFilter
   );
-  loadTotalOrderbyAge(
+  loadChartTotalOrderByAgeGroup(
     stateFilters,
     countryFilters,
     subCategoryFilters,
     dateRangeFilter
   );
-  loadCustomerTotalOrderbyColorProduct(
+  loadChartCustomerTotalOrderByColorProduct(
     stateFilters,
     countryFilters,
     subCategoryFilters,
@@ -182,3 +213,30 @@ document.getElementById("endDate").addEventListener("change", function () {
   this.value = validateDate(selectedDate, "2016-06-30");
   checkDateRange();
 });
+
+window.onload = function () {
+  let countryCheckboxes = document.querySelectorAll(
+    'input[type=checkbox][name="country"]'
+  );
+  let stateCheckboxes = document.querySelectorAll(
+    'input[type=checkbox][name="state"]'
+  );
+  let subcategoryCheckboxes = document.querySelectorAll(
+    'input[type=checkbox][name="subcategory"]'
+  );
+
+  countryCheckboxes.forEach((checkbox) => {
+    checkbox.checked = true;
+    handleOnCountryFilter(checkbox);
+  });
+
+  stateCheckboxes.forEach((checkbox) => {
+    checkbox.checked = true;
+    handleOnStateFilter(checkbox);
+  });
+
+  subcategoryCheckboxes.forEach((checkbox) => {
+    checkbox.checked = true;
+    handleOnSubCategoryFilter(checkbox);
+  });
+};

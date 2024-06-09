@@ -1,4 +1,4 @@
-function loadTotalOrderbyAge(stateFiltersValues, countryFiltersValues, subCategoryValues, dateRangeFilterValues) {
+function loadChartTotalOrderByAgeGroup(stateFiltersValues, countryFiltersValues, subCategoryValues, dateRangeFilterValues) {
   fetch('data.json')
     .then(response => response.json())
     .then(data => {
@@ -32,7 +32,7 @@ function loadTotalOrderbyAge(stateFiltersValues, countryFiltersValues, subCatego
       const orders = sortedData.map(entry => entry[1]);
 
       // reload chart
-      let chartId = 'chart-total-order-by-age-group';
+      let chartId = "chart-total-order-by-age-group";
       destroyChart(chartId)
 
       // Membuat diagram batang
@@ -91,4 +91,4 @@ function loadTotalOrderbyAge(stateFiltersValues, countryFiltersValues, subCatego
     .catch(error => console.error('Error fetching the data:', error));
 };
 
-loadTotalOrderbyAge()
+loadChartTotalOrderByAgeGroup()
